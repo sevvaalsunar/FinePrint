@@ -1,0 +1,8 @@
+[
+ {"category":"auto_renewal","contains":"otomatik olarak yenilenir"},
+ {"category":"refund_denied","contains":"iade edilmez"},
+ {"category":"account_termination","contains":"askıya alabilir veya kapatabilir"},
+ {"category":"data_sale_sharing","contains":"üçüncü taraf reklam sağlayıcılarla paylaşılabilir"},
+ {"category":"unilateral_change","contains":"dilediği zaman önceden bildirimde bulunmaksızın değiştirebilir"},
+ {"category":"arbitration_waiver","contains":"toplu dava açma hakkından feragat eder"}
+]

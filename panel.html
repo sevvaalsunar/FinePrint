@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İnce Yazı</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<a class="skip" href="#sonuc">Sonuca atla</a>
+<header class="top">
+  <h1 class="brand">İnce Yazı</h1>
+  <button id="btn-sound" class="sound-toggle" type="button" aria-pressed="true">Ses: açık</button>
+</header>
+
+<main id="main">
+  <section class="page" aria-labelledby="page-title">
+    <p class="host" id="page-host">—</p>
+    <h2 id="page-title" class="page-title">Sayfa okunuyor…</h2>
+    <div class="actions">
+      <button id="btn-read" class="primary" type="button">Yeniden tara</button>
+      <button id="btn-agent" class="quiet" type="button" hidden>Şartları yapay zekâyla ara</button>
+    </div>
+    <p id="progress" class="progress" role="status" aria-live="polite"></p>
+    <details id="trace-wrap" class="more" hidden><summary>Nasıl tarandı?</summary><ol id="trace" class="plain"></ol></details>
+  </section>
+
+  <section id="sonuc" class="result" tabindex="-1" aria-labelledby="verdict-title" hidden>
+    <div class="verdict" data-verdict="uncertain" id="verdict">
+      <h2 id="verdict-title" class="verdict-title"></h2>
+      <p id="verdict-body" class="verdict-body"></p>
+    </div>
+
+    <div class="horizon">
+      <div class="horizon-head"><span class="score"><b id="score-num">0</b><span class="of">/100</span></span><span id="score-word" class="score-word"></span></div>
+      <div class="track" role="img" id="track" aria-label="Risk ölçeği">
+        <span class="zone z1"></span><span class="zone z2"></span><span class="zone z3"></span>
+        <span class="marker" id="marker"></span>
+      </div>
+      <div class="ticks" aria-hidden="true"><span>Düşük</span><span>Orta</span><span>Yüksek</span></div>
+    </div>
+
+    <p id="coverage" class="coverage"></p>
+
+    <div class="sound-row">
+      <button id="btn-replay" class="quiet" type="button">Sonucu tekrar dinle</button>
+      <button id="btn-stop" class="quiet" type="button">Sesi durdur</button>
+    </div>
+    <p id="sound-caption" class="sound-caption" aria-hidden="true"></p>
+
+    <ul id="doubts" class="doubts" aria-label="Güvensizlik nedenleri"></ul>
+
+    <h3 id="findings-title" class="sec">Doğrulanan maddeler</h3>
+    <ol id="findings" class="findings" aria-labelledby="findings-title"></ol>
+    <p id="no-findings" class="empty" hidden>Bu metinde doğrulanmış riskli madde yok.</p>
+
+    <details id="uncertain-wrap" class="more" hidden>
+      <summary>Emin olamadığım noktalar <span id="uncertain-count"></span></summary>
+      <p class="more-note">Bunlar puana katılmadı. Model emin değildi veya alıntı kategoriyi açıkça desteklemedi.</p>
+      <ol id="uncertain" class="findings"></ol>
+    </details>
+
+    <details id="rejected-wrap" class="more" hidden>
+      <summary>Elenen iddialar <span id="rejected-count"></span></summary>
+      <p class="more-note">Doğrulayıcı bunları attı: alıntı metinde birebir bulunamadı veya biçim hatalıydı. Rapora girmediler.</p>
+      <ul id="rejected" class="plain"></ul>
+    </details>
+
+    <details id="injection-wrap" class="more warn" hidden>
+      <summary>Yapay zekâya yönelik gizli talimat <span id="injection-count"></span></summary>
+      <p class="more-note">Sayfada, bu aracı yönlendirmeye çalışan ifadeler bulundu. Hiçbiri uygulanmadı; modele gitmeden önce çıkarıldı.</p>
+      <ul id="injection" class="plain"></ul>
+    </details>
+  </section>
+</main>
+
+<footer class="legal" role="contentinfo">
+  <p><strong>Hukuki tavsiye değildir.</strong> Bu araç metni otomatik olarak ön okur; hata yapabilir. Karar vermeden önce metnin kendisini okuyun veya bir uzmana danışın.</p>
+</footer>
+
+<div id="live" class="sr-only" role="status" aria-live="assertive"></div>
+
+<script type="module" src="src/panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "İnce Yazı",
+  "version": "0.2.0",
+  "description": "Bir siteye girdiğinizde şartlarını ve gizlilik politikasını kendiliğinden okur; riski sesle ve yazıyla, alıntılarla söyler. Hukuki tavsiye değildir.",
+  "permissions": ["scripting", "sidePanel", "storage", "tabs", "offscreen", "tts"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "side_panel": { "default_path": "panel.html" },
+  "action": { "default_title": "İnce Yazı: sonucu göster" },
+  "commands": {
+    "read-result": { "suggested_key": { "default": "Alt+Shift+K" }, "description": "Bu sitenin sonucunu sesli oku" },
+    "_execute_action": { "suggested_key": { "default": "Alt+Shift+I" }, "description": "İnce Yazı panelini aç" }
+  },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}
